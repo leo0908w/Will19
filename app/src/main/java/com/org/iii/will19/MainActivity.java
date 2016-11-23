@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECORD_AUDIO,
+                    new String[] {Manifest.permission.RECORD_AUDIO,
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     123);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
 
-    public void b2(View v){
+    public void b2(View v) {
         if (strPlayMusic == null) return;
 
         try {
@@ -57,41 +57,41 @@ public class MainActivity extends AppCompatActivity {
             mp.setDataSource(strPlayMusic);
             mp.prepare();
             mp.start();
-        } catch(Exception e){
+        } catch(Exception e) {
             Log.v("will", e.toString());
         }
     }
 
-    public void b3(View v){
+    public void b3(View v) {
         mr = new MediaRecorder();
         mr.setAudioSource(MediaRecorder.AudioSource.MIC);
         mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mr.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
-        mr.setOutputFile(sdroot.getAbsolutePath() + "/brad.3gp");
+        mr.setOutputFile(sdroot.getAbsolutePath() + "/will.3gp");
 
         try {
             mr.prepare();
             mr.start();
-        }catch (Exception ee){
-            Log.v("brad", ee.toString());
+        } catch (Exception ee) {
+            Log.v("will", ee.toString());
         }
     }
 
-    public void b4(View v){
-        if (mr!=null){
+    public void b4(View v) {
+        if (mr != null) {
             mr.stop();
             mr.release();
             mr = null;
         }
     }
 
-    public void b5(View v){
+    public void b5(View v) {
         try {
             mp = new MediaPlayer();
-            mp.setDataSource(sdroot.getAbsolutePath() + "/brad.3gp");
+            mp.setDataSource(sdroot.getAbsolutePath() + "/will.3gp");
             mp.prepare();
             mp.start();
-        } catch(Exception e){
+        } catch(Exception e) {
             Log.v("will", e.toString());
         }
     }
